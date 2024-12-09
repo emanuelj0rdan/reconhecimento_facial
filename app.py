@@ -4,6 +4,21 @@ import numpy as np
 import face_recognition
 import streamlit as st
 
+def load_known_faces():
+    faces_path = "faces"
+    facesEncodinds = []
+    facesNames = []
+
+    for file_name in os.listdir(faces_path):
+        filePath = os.path.join(faces_path, file_name)
+        image = cv2.imread(filePath)
+        image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+
+        f_coding = face_recognition.face_encodings(image)[0]
+        facesEncodinds.append(f_coding)
+        facesNames.append(file_name.split(".")[0])
+    
+    return facesEncodinds, facesNames
 
 def main():
     st.title("Reconhecimento Facial em Tempo Real")
