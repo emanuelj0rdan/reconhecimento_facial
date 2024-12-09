@@ -33,7 +33,7 @@ def main():
         return
 
     # Usa Haar Cascade, incluído com o OpenCV
-    cascade_path = cv2.data.haarcascades() + 'haarcascade_frontalface_default.xml'
+    cascade_path = "haarcascade_frontalface_default.xml"
     faceClassificador = cv2.CascadeClassifier(cascade_path)
 
     # Cria uma parte pra exibir o vídeo
